@@ -1,4 +1,4 @@
-package br.com.classapp.RNSensitiveInfo;
+package br.com.classapp.RNSensitiveInfoOld;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -11,14 +11,14 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
 
-public class RNSensitiveInfoPackage implements ReactPackage {
+public class RNSensitiveInfoOldPackage implements ReactPackage {
 
   @Override
   public List<NativeModule> createNativeModules(
                               ReactApplicationContext reactContext) {
     List<NativeModule> modules = new ArrayList<>();
 
-    modules.add(new RNSensitiveInfoModule(reactContext));
+    modules.add(new RNSensitiveInfoOldModule(reactContext));
 
     return modules;
   }

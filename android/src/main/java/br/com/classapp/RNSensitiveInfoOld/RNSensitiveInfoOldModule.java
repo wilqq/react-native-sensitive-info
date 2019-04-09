@@ -1,4 +1,4 @@
-package br.com.classapp.RNSensitiveInfo;
+package br.com.classapp.RNSensitiveInfoOld;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -37,7 +37,7 @@ import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import javax.security.auth.x500.X500Principal;
 
-public class RNSensitiveInfoModule extends ReactContextBaseJavaModule {
+public class RNSensitiveInfoOldModule extends ReactContextBaseJavaModule {
 
     private static final String AndroidKeyStore = "AndroidKeyStore";
     private static final String RSA_MODE = "RSA/ECB/PKCS1Padding";
@@ -50,18 +50,18 @@ public class RNSensitiveInfoModule extends ReactContextBaseJavaModule {
     private static final byte[] FIXED_IV = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1};
     private static Key secretKey;
 
-    public RNSensitiveInfoModule(ReactApplicationContext reactContext) {
+    public RNSensitiveInfoOldModule(ReactApplicationContext reactContext) {
         super(reactContext);
         try {
             initKeyStore(reactContext);
         } catch (Exception e) {
-            Log.d("RNSensitiveInfo", e.getCause().getMessage());
+            Log.d("RNSensitiveInfoOld", e.getCause().getMessage());
         }
     }
 
     @Override
     public String getName() {
-        return "RNSensitiveInfo";
+        return "RNSensitiveInfoOld";
     }
 
     @ReactMethod
@@ -74,7 +74,7 @@ public class RNSensitiveInfoModule extends ReactContextBaseJavaModule {
             try {
                 value = decrypt(value);
             } catch (Exception e) {
-                Log.d("RNSensitiveInfo", e.getCause().getMessage());
+                Log.d("RNSensitiveInfoOld", e.getCause().getMessage());
             }
         }
 
@@ -90,7 +90,7 @@ public class RNSensitiveInfoModule extends ReactContextBaseJavaModule {
             putExtra(key, value, prefs(name));
             pm.resolve(null);
         } catch (Exception e) {
-            Log.d("RNSensitiveInfo", e.getCause().getMessage());
+            Log.d("RNSensitiveInfoOld", e.getCause().getMessage());
             pm.reject(e);
         }
     }
@@ -122,7 +122,7 @@ public class RNSensitiveInfoModule extends ReactContextBaseJavaModule {
             try {
                 value = decrypt(value);
             } catch (Exception e) {
-                Log.d("RNSensitiveInfo", e.getCause().getMessage());
+                Log.d("RNSensitiveInfoOld", e.getCause().getMessage());
             }
             resultData.putString(entry.getKey(), value);
         }

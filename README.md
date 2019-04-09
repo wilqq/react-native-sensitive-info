@@ -3,6 +3,10 @@
 [![npm version](https://badge.fury.io/js/react-native-sensitive-info.svg)](https://badge.fury.io/js/react-native-sensitive-info)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+This is fork of https://github.com/mCodex/react-native-sensitive-info
+
+This package can be installed together with standard RNSI.
+
 **react-native-sensitive-info**  is the next generation of [react-native-get-shared-prefs](https://www.npmjs.com/package/react-native-get-shared-prefs).
 
 # Introduction
@@ -40,7 +44,7 @@ In XCode, in the project navigator:
 
 In XCode, in the project navigator, select your project.
 
-* Add the libRNSensitiveInfo.a from the RNSensitiveInfo project to your project's Build Phases ➜ Link Binary With Libraries
+* Add the libRNSensitiveInfo.a from the RNSensitiveInfoOld project to your project's Build Phases ➜ Link Binary With Libraries
 * Click .xcodeproj file you added before in the project navigator and go the Build Settings tab. Make sure 'All' is toggled on (instead of 'Basic').
 * Look for Header Search Paths and make sure it contains both $(SRCROOT)/../react-native/React and $(SRCROOT)/../../React - mark both as recursive. (Should be OK by default.)
 
@@ -51,25 +55,25 @@ Run your project (Cmd+R)
 Go to `settings.gradle` inside your android project folder and paste this lines there:
 
 ```java
-include ':react-native-sensitive-info'
+include ':react-native-sensitive-info-old'
 
-project(':react-native-sensitive-info').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sensitive-info/android')
+project(':react-native-sensitive-info-old').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sensitive-info-old/android')
 ```
 
 and paste it into `build.gradle`:
 
 ```java
-compile project(':react-native-sensitive-info')
+compile project(':react-native-sensitive-info-old')
 ```
 
 In your `MainApplication.java` add:
 ```java
-import br.com.classapp.RNSensitiveInfo.RNSensitiveInfoPackage; //<- You must import this
+import br.com.classapp.RNSensitiveInfoOld.RNSensitiveInfoOldPackage; //<- You must import this
 
 protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
-        new RNSensitiveInfoPackage(), // <- Add this line
+        new RNSensitiveInfoOldPackage(), // <- Add this line
     );
 }
 ```
